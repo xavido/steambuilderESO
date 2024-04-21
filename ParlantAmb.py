@@ -1,8 +1,14 @@
 import openai
 import streamlit as st
 import time
+import mysql.connector
 
 assistant_id = st.secrets["OPENAI_ASSISTANT"]
+db_host = st.secrets["DB_HOST"]
+db_port = st.secrets["DB_PORT"]
+db_name =  st.secrets["DB_NAME"]
+db_user =  st.secrets["DB_USER"]
+db_password =  st.secrets["DB_PASSWORD"]
 
 client = openai
 
@@ -57,7 +63,6 @@ with st.sidebar.form("usuari_form"):
         st.session_state.disabled = True
         thread = client.beta.threads.create()
         st.session_state.thread_id = thread.id
-        st.write(nom)
   else:
         if nom != '':
             st.sidebar.write(":red[Aquest usuari no existeix]")
@@ -113,6 +118,27 @@ if st.session_state.start_chat:
             st.session_state.messages.append({"role": "assistant", "content": message.content[0].text.value})
             with st.chat_message("assistant"):
                 st.markdown(message.content[0].text.value)
+
+# Crea una conexión con la base de datos
+        conn = mysql.connector.connect(host=db_host, port=db_port, database=db_name, user=db_user,
+                                                       password=db_password)
+
+        # Crea un cursor para ejecutar comandos SQL
+        cur = conn.cursor()
+
+        # Ejecuta una consulta SQL
+        sql = "INSERT INTO teclaPREGUNTES (id,pregunta, resposta,infografia,tema) VALUES (%s,%s,%s,%s,%s)"
+
+        valores = (nom, prompt, message.content[0].text.value, '', 10000)
+        cur.execute(sql, valores)
+
+        # Obtiene los resultados de la consulta
+        results_database = cur.fetchall()
+        conn.commit()
+
+        # Cierra la conexión con la base de datos
+        cur.close()
+        conn.close()
 
 else:
     st.write("Introdueix les teves dades i fes click a 'Iniciar Xat'.")
