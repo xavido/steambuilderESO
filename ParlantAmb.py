@@ -31,6 +31,7 @@ with st.sidebar.form("usuari_form"):
   nom = st.text_input("Escriu la teva identificacio ")
   submit_button = st.form_submit_button(label="Iniciar Xat",on_click=disable, disabled=st.session_state.disabled)
 
+
   if submit_button and nom != '':
     st.session_state.start_chat = True
     thread = client.beta.threads.create()
@@ -48,8 +49,6 @@ if st.sidebar.button("Sortir Xat"):
     st.session_state.messages = []  # Clear the chat history
     st.session_state.start_chat = False  # Reset the chat state
     st.session_state.thread_id = None
-    st.session_state.disabled = False
-    enable()
 
 if st.session_state.start_chat:
     if "openai_model" not in st.session_state:
