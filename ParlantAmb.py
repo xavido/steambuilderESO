@@ -15,12 +15,12 @@ st.set_page_config(page_title="CatGPT", page_icon=":speech_balloon:")
 
 openai.api_key = st.secrets["auto_pau"]
 
-if st.sidebar.button("Start Chat"):
+if st.sidebar.button("Iniciar Xat"):
     st.session_state.start_chat = True
     thread = client.beta.threads.create()
     st.session_state.thread_id = thread.id
 
-st.title("Parlant amb...")
+st.title("Parlant amb...Júlia")
 st.write("Soc historiadora....em pots preguntar el que vulguis de la Història")
 
 if st.button("Exit Chat"):
@@ -76,4 +76,4 @@ if st.session_state.start_chat:
                 st.markdown(message.content[0].text.value)
 
 else:
-    st.write("Click 'Start Chat' to begin.")
+    st.write("Introdueix les teves dades i fes click a 'Iniciar Xat'.")
