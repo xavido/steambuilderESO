@@ -19,14 +19,18 @@ with st.sidebar.form("images_form"):
   nom = st.text_input("Escriu la teva identificacio ")
   submit_button = st.form_submit_button(label="Iniciar Xat")
 
-
-if st.sidebar.button("Iniciar Xat"):
+  if submit_button and nom != ''
     st.session_state.start_chat = True
     thread = client.beta.threads.create()
     st.session_state.thread_id = thread.id
 
+#if st.sidebar.button("Iniciar Xat"):
+#    st.session_state.start_chat = True
+#    thread = client.beta.threads.create()
+#    st.session_state.thread_id = thread.id
+
 st.title("Parlant amb...Júlia")
-st.write("Soc historiadora....em pots preguntar el que vulguis de la Història")
+st.write("Soc historiadora....em pots preguntar el que vulguis de la Història.")
 
 if st.button("Sortir Xat"):
     st.session_state.messages = []  # Clear the chat history
