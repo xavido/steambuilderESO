@@ -17,7 +17,7 @@ openai.api_key = st.secrets["auto_pau"]
 
 # Disable the submit button after it is clicked
 def disable():
-    #st.session_state.disabled = True
+    st.session_state.disabled = True
 
 def enable():
     if "disabled" in st.session_state and st.session_state.disabled == True:
@@ -29,7 +29,7 @@ if "disabled" not in st.session_state:
 
 with st.sidebar.form("usuari_form"):
   nom = st.text_input("Escriu la teva identificacio ")
-  submit_button = st.form_submit_button(label="Iniciar Xat",on_click=disable, disabled=st.session_state.disabled)
+  submit_button = st.form_submit_button(label="Iniciar Xat")
 
 
   if submit_button and nom != '':
