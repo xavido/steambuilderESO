@@ -30,7 +30,7 @@ if "disabled" not in st.session_state:
     st.session_state.disabled = False
 
 with st.sidebar.form("usuari_form"):
-  nom = st.text_input("Escriu la teva identificacio ")
+  nom = st.text_input("Escriu la teva identificacio 👇",key="nom_usuari")
   submit_button = st.form_submit_button(label="Iniciar Xat")
 
 
@@ -53,6 +53,7 @@ if st.sidebar.button("Sortir Xat"):
     st.session_state.messages = []  # Clear the chat history
     st.session_state.start_chat = False  # Reset the chat state
     st.session_state.thread_id = None
+
 
 if st.session_state.start_chat:
     if "openai_model" not in st.session_state:
