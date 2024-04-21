@@ -84,12 +84,12 @@ if st.session_state.start_chat:
 
     if prompt := st.chat_input("Escriu aquí la teva pregunta"):
         st.session_state.messages.append({"role": "user", "content": prompt})
-        with st.chat_message(nom):
+        with st.chat_message("user"):
             st.markdown(prompt)
 
         client.beta.threads.messages.create(
             thread_id=st.session_state.thread_id,
-            role=nom,
+            role="user",
             content=prompt
         )
 
