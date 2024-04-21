@@ -2,6 +2,7 @@ import openai
 import streamlit as st
 import time
 import mysql.connector
+import base64
 
 assistant_id = st.secrets["OPENAI_ASSISTANT"]
 db_host = st.secrets["DB_HOST"]
@@ -15,6 +16,7 @@ especials=""
 especials3=""
 especials4=""
 client = openai
+count = 0
 
 if "start_chat" not in st.session_state:
     st.session_state.start_chat = False
@@ -37,6 +39,20 @@ l4 = ['fali','ifatima','mmuhammad','hrabani','sasghar','maslam','hmir','hnoor','
 
 
 # Disable the submit button after it is clicked
+
+def autoplay_audio(file_path: str):
+    with open(file_path, "rb") as f:
+        data = f.read()
+        b64 = base64.b64encode(data).decode()
+        md = f"""
+            <audio controls autoplay="true">
+            <source src="data:audio/mp3;base64,{b64}" type="audio/mp3">
+            </audio>
+            """
+        st.markdown(
+            md,
+            unsafe_allow_html=True,
+        )
 
 def disable():
     if nom != '' and nom in l1:
@@ -158,6 +174,13 @@ if st.session_state.start_chat:
         # Cierra la conexión con la base de datos
         cur.close()
         conn.close()
+
+        elaudio = st.empty()
+        nomfitxer = "output_" + str(count) + "_" + "_" + nom + "_.mp3"
+        count += 1
+        response.stream_to_file(nomfitxer)
+        with elaudio.container():
+            autoplay_audio(nomfitxer)
 
 else:
     st.write("Introdueix les teves dades i fes click a 'Iniciar Xat'.")
