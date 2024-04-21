@@ -38,7 +38,7 @@ with st.sidebar.form("usuari_form"):
     thread = client.beta.threads.create()
     st.session_state.thread_id = thread.id
   else:
-    st.write("Aquest usuari no existeix")
+    st.write("Aquest usuari no existeix[red]")
 
 #if st.sidebar.button("Iniciar Xat"):
 #    st.session_state.start_chat = True
