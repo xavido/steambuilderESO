@@ -20,7 +20,7 @@ if st.sidebar.button("Start Chat"):
     thread = client.beta.threads.create()
     st.session_state.thread_id = thread.id
 
-st.title("Júlia Chatbot")
+st.title("Parlant amb...")
 st.write("Soc historiadora....em pots preguntar el que vulguis de la Història")
 
 if st.button("Exit Chat"):
@@ -52,7 +52,7 @@ if st.session_state.start_chat:
         run = client.beta.threads.runs.create(
             thread_id=st.session_state.thread_id,
             assistant_id=assistant_id,
-            instructions="Please answer the queries with catalan words you are the best history researcher."
+            instructions="Please answer the queries with catalan words you are the best history researcher. You are only allowed to answer with information from your docs."
         )
 
         while run.status != 'completed':
