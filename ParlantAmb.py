@@ -11,7 +11,7 @@ if "start_chat" not in st.session_state:
 if "thread_id" not in st.session_state:
     st.session_state.thread_id = None
 
-st.set_page_config(page_title="CatGPT", page_icon=":speech_balloon:")
+st.set_page_config(page_title="IE Rafael Alberti - Parlant amb la Júlia... un xat sobre història", page_icon=":speech_balloon:")
 
 openai.api_key = st.secrets["auto_pau"]
 
