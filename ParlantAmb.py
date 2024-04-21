@@ -38,7 +38,7 @@ with st.sidebar.form("usuari_form"):
     st.session_state.start_chat = True
     thread = client.beta.threads.create()
     st.session_state.thread_id = thread.id
-    st.session_state.disabled = False
+    st.session_state.disabled = True
   else:
     if nom !='':
         st.write(":red[Aquest usuari no existeix]")
