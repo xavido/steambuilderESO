@@ -96,7 +96,7 @@ if st.session_state.start_chat:
         client.beta.threads.messages.create(
             thread_id=st.session_state.thread_id,
             role="user",
-            content=prompt
+            content=prompt+especials
         )
 
         run = client.beta.threads.runs.create(
@@ -114,7 +114,7 @@ if st.session_state.start_chat:
         messages = client.beta.threads.messages.list(
             thread_id=st.session_state.thread_id
         )
-        print(lesinstruccions+especials)
+
         # Process and display assistant messages
         assistant_messages_for_run = [
             message for message in messages
