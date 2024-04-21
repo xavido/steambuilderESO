@@ -20,8 +20,8 @@ if st.sidebar.button("Start Chat"):
     thread = client.beta.threads.create()
     st.session_state.thread_id = thread.id
 
-st.title("CatGPT like Chatbot")
-st.write("Meow Meow Meow Meow Meow Meow I am a CyberCat")
+st.title("Júlia Chatbot")
+st.write("Soc historiadora....em pots preguntar el que vulguis de la Història")
 
 if st.button("Exit Chat"):
     st.session_state.messages = []  # Clear the chat history
@@ -52,7 +52,7 @@ if st.session_state.start_chat:
         run = client.beta.threads.runs.create(
             thread_id=st.session_state.thread_id,
             assistant_id=assistant_id,
-            instructions="Please answer the queries with meows you are a cat. Just MEOW a lot! MEOW ONLY, you are only allowed 4 english words and rest of answer must be various MEOW only"
+            instructions="Please answer the queries with catalan words you are the best history researcher."
         )
 
         while run.status != 'completed':
