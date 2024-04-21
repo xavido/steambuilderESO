@@ -38,10 +38,10 @@ with st.sidebar.form("usuari_form"):
     st.session_state.start_chat = True
     thread = client.beta.threads.create()
     st.session_state.thread_id = thread.id
-    st.session_state.disabled = True
+    st.session_state.disabled = False
   else:
     st.write(":red[Aquest usuari no existeix]")
-    st.session_state.disabled = False
+    st.session_state.disabled = True
 
 #if st.sidebar.button("Iniciar Xat"):
 #    st.session_state.start_chat = True
@@ -55,7 +55,7 @@ if st.sidebar.button("Sortir Xat"):
     st.session_state.messages = []  # Clear the chat history
     st.session_state.start_chat = False  # Reset the chat state
     st.session_state.thread_id = None
-    st.session_state.disabled = True
+    st.session_state.disabled = False
 
 
 if st.session_state.start_chat:
