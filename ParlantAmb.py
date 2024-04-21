@@ -15,7 +15,7 @@ st.set_page_config(page_title="IE Rafael Alberti - Parlant amb la Júlia... un x
 
 openai.api_key = st.secrets["auto_pau"]
 
-with st.form("images_form"):
+with st.sidebar.form("images_form"):
   nom = st.text_input("Escriu la teva identificacio ")
   submit_button = st.form_submit_button(label="Iniciar Xat")
 
