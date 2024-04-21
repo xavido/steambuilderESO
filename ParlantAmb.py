@@ -36,7 +36,7 @@ l1 = ['xdominguez', 'aorti', 'dajil','fali','wboutafah','acano','scolmenarez','o
 l2 = ['efreitas','aessalhi','ifatima','hrabani','vtrinidad','azeaaj','sasghar','maslam','sghanem','hmir']
 l3 = ['dajil','aessalhi','sghanem']
 l4 = ['fali','ifatima','mmuhammad','hrabani','sasghar','maslam','hmir','hnoor','krani']
-
+l5 = ['efreitas','aessalhi','ifatima','hrabani','vtrinidad','azeaaj','sasghar','maslam','sghanem','hmir']
 
 # Disable the submit button after it is clicked
 
@@ -175,19 +175,20 @@ if st.session_state.start_chat:
         cur.close()
         conn.close()
 
-        response = ''
-        response = client.audio.speech.create(
-            model="tts-1",
-            voice="alloy",
-            input=message.content[0].text.value,
-        )
-        #response = message.content[0].text.value
-        elaudio = st.empty()
-        nomfitxer = "output_" + str(count) + "_" + "_" + nom + "_.mp3"
-        count += 1
-        response.stream_to_file(nomfitxer)
-        with elaudio.container():
-            autoplay_audio(nomfitxer)
+        if nom in l5:
+            response = ''
+            response = client.audio.speech.create(
+                model="tts-1",
+                voice="alloy",
+                input=message.content[0].text.value,
+            )
+            #response = message.content[0].text.value
+            elaudio = st.empty()
+            nomfitxer = "output_" + str(count) + "_" + "_" + nom + "_.mp3"
+            count += 1
+            response.stream_to_file(nomfitxer)
+            with elaudio.container():
+                autoplay_audio(nomfitxer)
 
 else:
     st.write("Introdueix les teves dades i fes click a 'Iniciar Xat'.")
