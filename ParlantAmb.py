@@ -103,13 +103,13 @@ if st.session_state.start_chat:
         client.beta.threads.messages.create(
             thread_id=st.session_state.thread_id,
             role="user",
-            content=prompt+especials
+            content=prompt+especials+especials3+especials4
         )
 
         run = client.beta.threads.runs.create(
             thread_id=st.session_state.thread_id,
             assistant_id=assistant_id,
-            instructions=lesinstruccions+especials
+            instructions=lesinstruccions+especials+especials3+especials4
         )
 
         while run.status != 'completed':
