@@ -15,11 +15,12 @@ st.set_page_config(page_title="IE Rafael Alberti - Parlant amb la Júlia... un x
 
 openai.api_key = st.secrets["auto_pau"]
 
-with st.sidebar.form("images_form"):
+with st.sidebar.form("usuari_form"):
   nom = st.text_input("Escriu la teva identificacio ")
   submit_button = st.form_submit_button(label="Iniciar Xat")
 
   if submit_button and nom != '':
+    st.sidebar.form("usuari_form").disabled = True
     st.session_state.start_chat = True
     thread = client.beta.threads.create()
     st.session_state.thread_id = thread.id
