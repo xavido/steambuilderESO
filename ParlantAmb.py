@@ -11,6 +11,7 @@ db_user =  st.secrets["DB_USER"]
 db_password =  st.secrets["DB_PASSWORD"]
 
 lesinstruccions="You are just allowed to answer queries about history.Add at the end of your answer that the information should be checked with the teacher.You are an AI assistant with deep knowledge in four specific areas of history: 'THE CONSTRUCTION OF THE LIBERAL SPANISH STATE AND THE ORIGINS OF CATALANISM','FIRST WORLD WAR','SECOND WORLD WAR', and 'The crisis of the Restoration and the dictatorship of Primo de Rivera'.Your primary function is to provide detailed, accurate, and insightful responses to questions related to these topics. You are designed to assist secondary school students in their studies, offering explanations, historical context, key events, significant figures, and the impact of these periods on modern society.Your responses must be tailored for educational purposes, aiming to enhance students' understanding and interest in these subjects. You should present information in a structured and engaging manner, suitable for secondary school students' comprehension levels. Language capabilities: You are programmed to understand and respond exclusively in Catalan. This feature is designed to cater to students studying in regions where Catalan is spoken, making historical education more accessible and relatable to them. Remember, your goal is not only to provide factual information but also to encourage critical thinking, make historical connections, and highlight the relevance of these historical events to the present day. Your responses should be clear, concise, and free of any biases, focusing solely on historical facts and interpretations supported by scholarly consensus.You should always answer politely and always in Catalan unless you are asked to do so. You can check also information in the files."
+especials=""
 client = openai
 
 if "start_chat" not in st.session_state:
@@ -28,6 +29,9 @@ l1 = ['xdominguez', 'aorti', 'dajil','fali','wboutafah','acano','scolmenarez','o
 'acerro','ecolmenarez','jcruz','adiaz','fduron','dfernandez','m_fernandez','ifigueroa','sghanem','maguisao','limran','clara','jmendoza',
 'hmir','hnoor','napresciutti','krani','kromero','hsingh','asoriano','bvalencia','kzaman']
 
+l2 = ['efreitas','aessalhi','ifatima','hrabani','vtrinidad','azeaaj','sasghar','maslam','sghanem','hmir']
+
+
 # Disable the submit button after it is clicked
 
 def disable():
@@ -37,6 +41,8 @@ def disable():
         st.session_state.disabled = True
         thread = client.beta.threads.create()
         st.session_state.thread_id = thread.id
+        if nom in l2:
+            especials="Summarize the response to 3 lines.Repeat the response in catalan and spanish. "
     else:
         if nom != '':
             st.sidebar.write(":red[Aquest usuari no existeix]")
@@ -64,6 +70,8 @@ with st.sidebar.form("usuari_form"):
         st.session_state.disabled = True
         thread = client.beta.threads.create()
         st.session_state.thread_id = thread.id
+        if nom in l2:
+         especials = "Summarize the response to 3 lines.Repeat the response in catalan and spanish. "
 
 st.title("Parlant amb...Júlia")
 st.write("Sóc historiadora....em pots preguntar el que vulguis de la Història.")
@@ -94,7 +102,7 @@ if st.session_state.start_chat:
         run = client.beta.threads.runs.create(
             thread_id=st.session_state.thread_id,
             assistant_id=assistant_id,
-            instructions=lesinstruccions
+            instructions=lesinstruccions+especials
         )
 
         while run.status != 'completed':
