@@ -50,7 +50,7 @@ def disable():
     if nom in l2:
         especials = "Summarize the answer to 3 lines as if it were being read by an 8 year old child.Repeat the answer in spanish too."
     if nom in l3:
-        especials3 = "Repeat the answer in arab too."
+        especials3 = "Repeat the same answer in arab too."
 
 
 def enable():
@@ -71,7 +71,8 @@ with st.sidebar.form("usuari_form"):
   if nom in l2:
       especials = "Summarize the answer to 3 lines as if it were being read by an 8 year old child. Repeat the answer in spanish too."
   if nom in l3:
-      especials3 = "Repeat the answer in arab too."
+      especials3 = "Repeat the same answer in arab too."
+
   if submit_button and nom != '' and nom in l1:
         st.session_state.disabled = True
         st.session_state.start_chat = True
