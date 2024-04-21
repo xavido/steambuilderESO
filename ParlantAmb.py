@@ -26,7 +26,7 @@ def disable():
         st.session_state.thread_id = thread.id
     else:
         if nom != '':
-            st.write(":red[Aquest usuari no existeix]")
+            st.sidebar.write(":red[Aquest usuari no existeix]")
 
 
 def enable():
