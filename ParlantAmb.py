@@ -71,7 +71,7 @@ with st.sidebar.form("usuari_form"):
         thread = client.beta.threads.create()
         st.session_state.thread_id = thread.id
         if nom in l2:
-         especials = "Give the response in 3 lines in catalan and spanish. "
+         especials = "Give the response in 3 lines for a 8 years kid in catalan and the same response in spanish. "
 
 st.title("Parlant amb...Júlia")
 st.write("Sóc historiadora....em pots preguntar el que vulguis de la Història.")
@@ -114,7 +114,7 @@ if st.session_state.start_chat:
         messages = client.beta.threads.messages.list(
             thread_id=st.session_state.thread_id
         )
-
+        print(lesinstruccions+especials)
         # Process and display assistant messages
         assistant_messages_for_run = [
             message for message in messages
