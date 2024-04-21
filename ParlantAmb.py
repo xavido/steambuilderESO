@@ -55,12 +55,13 @@ with st.sidebar.form("usuari_form"):
         st.session_state.disabled = True
         thread = client.beta.threads.create()
         st.session_state.thread_id = thread.id
+        st.write(nom)
   else:
         if nom != '':
             st.sidebar.write(":red[Aquest usuari no existeix]")
 
 st.title("Parlant amb...Júlia")
-st.write("Soc historiadora....em pots preguntar el que vulguis de la Història.")
+st.write("Sóc historiadora....em pots preguntar el que vulguis de la Història.")
 
 st.sidebar.button("Sortir Xat",on_click=enable)
 
