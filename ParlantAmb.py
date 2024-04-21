@@ -36,7 +36,7 @@ with st.sidebar.form("usuari_form"):
 
   if submit_button and nom != '' and nom in l1:
     st.session_state.start_chat = True
-    st.session_state.disabled = True
+    st.session_state.disabled = False
     thread = client.beta.threads.create()
     st.session_state.thread_id = thread.id
   else:
@@ -55,7 +55,7 @@ if st.sidebar.button("Sortir Xat"):
     st.session_state.messages = []  # Clear the chat history
     st.session_state.start_chat = False  # Reset the chat state
     st.session_state.thread_id = None
-    st.session_state.disabled = False
+    st.session_state.disabled = True
 
 
 if st.session_state.start_chat:
