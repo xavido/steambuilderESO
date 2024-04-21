@@ -127,7 +127,7 @@ if st.session_state.start_chat:
         cur = conn.cursor()
 
         # Ejecuta una consulta SQL
-        sql = "INSERT INTO teclaPREGUNTES (id,pregunta, resposta,infografia,tema) VALUES (%s,%s,%s,%s,%s)"
+        sql = "INSERT INTO teclaPREGUNTES (idc,pregunta, resposta,infografia,tema) VALUES (%s,%s,%s,%s,%s)"
 
         valores = (nom, prompt, message.content[0].text.value, '', 10000)
         cur.execute(sql, valores)
