@@ -52,7 +52,7 @@ if st.session_state.start_chat:
         run = client.beta.threads.runs.create(
             thread_id=st.session_state.thread_id,
             assistant_id=assistant_id,
-            instructions="Please answer the queries with catalan words you are the best history researcher. You are only allowed to answer in catalan and with information from your docs."
+            instructions="Please answer the queries in catalan and arab language. You are the best history researcher. You are only allowed to answer in catalan and with information from your docs."
         )
 
         while run.status != 'completed':
