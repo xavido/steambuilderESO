@@ -64,7 +64,7 @@ with st.sidebar.form("usuari_form"):
   nom = st.text_input("Escriu la teva identificacio 👇",disabled=st.session_state.disabled, key=1)
   submit_button = st.form_submit_button(label="Iniciar Xat",disabled=st.session_state.disabled, on_click=disable)
   if nom in l2:
-      especials = "Summarize the answer to 3 lines as if it were being read by an 8 year old child"
+      especials = "Summarize the answer to 3 lines as if it were being read by an 8 year old child. Repeat the answer in spanish too."
 
   if submit_button and nom != '' and nom in l1:
         st.session_state.disabled = True
@@ -93,8 +93,7 @@ if st.session_state.start_chat:
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):
             st.markdown(prompt)
-            st.markdown(especials)
-            
+
         client.beta.threads.messages.create(
             thread_id=st.session_state.thread_id,
             role="user",
