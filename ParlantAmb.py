@@ -33,6 +33,7 @@ l1 = ['xdominguez', 'aorti', 'dajil','fali','wboutafah','acano','scolmenarez','o
 
 l2 = ['efreitas','aessalhi','ifatima','hrabani','vtrinidad','azeaaj','sasghar','maslam','sghanem','hmir']
 l3 = ['dajil','aessalhi','sghanem']
+l4 = ['fali','ifatima','mmuhammad','hrabani','sasghar','maslam','hmir','hnoor','krani']
 
 
 # Disable the submit button after it is clicked
@@ -48,9 +49,11 @@ def disable():
         if nom != '':
             st.sidebar.write(":red[Aquest usuari no existeix]")
     if nom in l2:
-        especials = "Summarize the answer to 3 lines as if it were being read by an 8 year old child.Repeat the answer in spanish too."
+        especials = "Summarize the answer to 3 lines as if it were being read by an 8 year old child.Repeat the answer in spanish too.Answer just about history"
     if nom in l3:
-        especials3 = "Repeat the same answer in arab too."
+        especials3 = "Repeat the same answer in arab too.Answer just about history"
+    if nom in l4:
+        especials4 = "Repeat the same answer in urdu too.Answer just about history"
 
 
 def enable():
@@ -69,9 +72,11 @@ with st.sidebar.form("usuari_form"):
   nom = st.text_input("Escriu la teva identificacio 👇",disabled=st.session_state.disabled, key=1)
   submit_button = st.form_submit_button(label="Iniciar Xat",disabled=st.session_state.disabled, on_click=disable)
   if nom in l2:
-      especials = "Summarize the answer to 3 lines as if it were being read by an 8 year old child. Repeat the answer in spanish too."
+      especials = "Summarize the answer to 3 lines as if it were being read by an 5 year old child. Repeat the answer in spanish too."
   if nom in l3:
-      especials3 = "Repeat the same answer in arab too."
+      especials3 = "Repeat the same answer in arab too.Answer just about history"
+  if nom in l4:
+      especials4 = "Repeat the same answer in urdu too.Answer just about history"
 
   if submit_button and nom != '' and nom in l1:
         st.session_state.disabled = True
