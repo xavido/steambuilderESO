@@ -175,7 +175,13 @@ if st.session_state.start_chat:
         cur.close()
         conn.close()
 
-        response = message.content[0].text.value
+        response = ''
+        response = client.audio.speech.create(
+            model="tts-1",
+            voice="alloy",
+            input=message.content[0].text.value,
+        )
+        #response = message.content[0].text.value
         elaudio = st.empty()
         nomfitxer = "output_" + str(count) + "_" + "_" + nom + "_.mp3"
         count += 1
