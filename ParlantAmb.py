@@ -35,21 +35,11 @@ def enable():
 
 # Initialize disabled for form_submit_button to False
 if "disabled" not in st.session_state:
-    st.session_state.disabled = True
+    st.session_state.disabled = False
 
 with st.sidebar.form("usuari_form"):
   nom = st.text_input("Escriu la teva identificacio 👇",disabled=st.session_state.disabled, key=1)
   submit_button = st.form_submit_button(label="Iniciar Xat",disabled=st.session_state.disabled, on_click=disable)
-
-
-  if submit_button and nom != '' and nom in l1:
-    st.session_state.start_chat = True
-    st.session_state.disabled = True
-    thread = client.beta.threads.create()
-    st.session_state.thread_id = thread.id
-  else:
-    if nom !='':
-        st.write(":red[Aquest usuari no existeix]")
 
 #if st.sidebar.button("Iniciar Xat"):
 #    st.session_state.start_chat = True
