@@ -28,7 +28,6 @@ with st.sidebar.form("usuari_form"):
   submit_button = st.form_submit_button(label="Iniciar Xat",on_click=disable, disabled=st.session_state.disabled)
 
   if submit_button and nom != '':
-    st.sidebar.form("usuari_form").disabled = True
     st.session_state.start_chat = True
     thread = client.beta.threads.create()
     st.session_state.thread_id = thread.id
