@@ -15,7 +15,12 @@ st.set_page_config(page_title="IE Rafael Alberti - Parlant amb la Júlia... un x
 
 openai.api_key = st.secrets["auto_pau"]
 
-l1 = ['xdominguez', 'aorti', 'C', 'D', 'A', 'A', 'C']
+l1 = ['xdominguez', 'aorti', 'dajil','fali','wboutafah','acano','scolmenarez','ocontreras','efreitas','cdiaz','rdisla','rhaiek','aessalhi',
+'ifatima','nfernandez','jgaleano','ngonzalez','omartinez','mmuhammad','tmuhammad','lnaharro','npresciutti','hrabani','jroldan',
+'oruiz','asenon','gsingh','vtrinidad','svilla','jzalkaliani','azepeda','azeaaj','mabdul','sasghar','mabrioul','maslam','mcabanillas','wcardenas',
+'acerro','ecolmenarez','jcruz','adiaz','fduron','dfernandez','m_fernandez','ifigueroa','sghanem','maguisao','limran','clara','jmendoza',
+'hmir','hnoor','napresciutti','krani','kromero','hsingh','asoriano','bvalencia','kzaman']
+
 # Disable the submit button after it is clicked
 
 def disable():
