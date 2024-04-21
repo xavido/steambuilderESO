@@ -21,7 +21,7 @@ l1 = ['xdominguez', 'aorti', 'C', 'D', 'A', 'A', 'C']
 def disable():
     if nom != '' and nom in l1:
         st.session_state.start_chat = True
-        st.session_state.disabled = True
+        st.session_state.disabled = False
         thread = client.beta.threads.create()
         st.session_state.thread_id = thread.id
     else:
