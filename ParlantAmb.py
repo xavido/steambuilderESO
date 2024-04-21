@@ -42,7 +42,6 @@ with st.sidebar.form("usuari_form"):
   else:
     if nom !='':
         st.write(":red[Aquest usuari no existeix]")
-    st.session_state.disabled = True
 
 #if st.sidebar.button("Iniciar Xat"):
 #    st.session_state.start_chat = True
