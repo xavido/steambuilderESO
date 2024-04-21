@@ -53,7 +53,7 @@ if st.sidebar.button("Sortir Xat"):
     st.session_state.messages = []  # Clear the chat history
     st.session_state.start_chat = False  # Reset the chat state
     st.session_state.thread_id = None
-    st.session_state.disabled = True
+    st.session_state.disabled = False
 
 
 if st.session_state.start_chat:
