@@ -40,7 +40,8 @@ with st.sidebar.form("usuari_form"):
     st.session_state.thread_id = thread.id
     st.session_state.disabled = False
   else:
-    st.write(":red[Aquest usuari no existeix]")
+    if nom !='':
+        st.write(":red[Aquest usuari no existeix]")
     st.session_state.disabled = True
 
 #if st.sidebar.button("Iniciar Xat"):
