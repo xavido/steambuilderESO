@@ -13,7 +13,7 @@ if "thread_id" not in st.session_state:
 
 st.set_page_config(page_title="CatGPT", page_icon=":speech_balloon:")
 
-openai.api_key = OpenAI(api_key=st.secrets["auto_pau"])
+openai.api_key = st.secrets["auto_pau"]
 
 if st.sidebar.button("Start Chat"):
     st.session_state.start_chat = True
