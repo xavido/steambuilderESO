@@ -17,7 +17,7 @@ openai.api_key = st.secrets["auto_pau"]
 
 # Disable the submit button after it is clicked
 def disable():
-    st.session_state.disabled = True
+    #st.session_state.disabled = True
 
 def enable():
     if "disabled" in st.session_state and st.session_state.disabled == True:
