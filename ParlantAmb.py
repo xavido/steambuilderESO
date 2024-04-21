@@ -30,7 +30,7 @@ if "disabled" not in st.session_state:
     st.session_state.disabled = False
 
 with st.sidebar.form("usuari_form"):
-  nom = st.text_input("Escriu la teva identificacio 👇",key="disabled",disabled=st.session_state.disabled)
+  nom = st.text_input("Escriu la teva identificacio 👇",disabled=st.session_state.disabled)
   submit_button = st.form_submit_button(label="Iniciar Xat",on_click=disable)
 
 
