@@ -19,7 +19,7 @@ with st.sidebar.form("images_form"):
   nom = st.text_input("Escriu la teva identificacio ")
   submit_button = st.form_submit_button(label="Iniciar Xat")
 
-  if submit_button and nom != ''
+  if submit_button and nom != '':
     st.session_state.start_chat = True
     thread = client.beta.threads.create()
     st.session_state.thread_id = thread.id
