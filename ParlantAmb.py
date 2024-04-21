@@ -41,11 +41,11 @@ def disable():
         st.session_state.disabled = True
         thread = client.beta.threads.create()
         st.session_state.thread_id = thread.id
-        if nom in l2:
-            especials ="Summarize the response to 3 lines.Repeat the response in catalan and spanish. "
     else:
         if nom != '':
             st.sidebar.write(":red[Aquest usuari no existeix]")
+    if nom in l2:
+        especials = "Summarize the answer to 3 lines as if it were being read by an 8 year old child"
 
 
 def enable():
@@ -70,8 +70,8 @@ with st.sidebar.form("usuari_form"):
         st.session_state.disabled = True
         thread = client.beta.threads.create()
         st.session_state.thread_id = thread.id
-        if nom in l2:
-         especials = "Give the response in 3 lines for a 8 years kid in catalan and the same response in spanish. "
+ if nom in l2:
+        especials = "Summarize the answer to 3 lines as if it were being read by an 8 year old child"
 
 st.title("Parlant amb...Júlia")
 st.write("Sóc historiadora....em pots preguntar el que vulguis de la Història.")
@@ -91,12 +91,12 @@ if st.session_state.start_chat:
     if prompt := st.chat_input("Escriu aquí la teva pregunta"):
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):
-            st.markdown(prompt+especials)
+            st.markdown(prompt)
 
         client.beta.threads.messages.create(
             thread_id=st.session_state.thread_id,
             role="user",
-            content=prompt+"Summarize the response to 3 lines.Repeat the response in spanish. "
+            content=prompt
         )
 
         run = client.beta.threads.runs.create(
