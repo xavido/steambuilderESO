@@ -32,7 +32,7 @@ with st.sidebar.form("images_form"):
 st.title("Parlant amb...Júlia")
 st.write("Soc historiadora....em pots preguntar el que vulguis de la Història.")
 
-if st.button("Sortir Xat"):
+if st.sidebar.button("Sortir Xat"):
     st.session_state.messages = []  # Clear the chat history
     st.session_state.start_chat = False  # Reset the chat state
     st.session_state.thread_id = None
