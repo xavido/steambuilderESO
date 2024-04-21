@@ -84,19 +84,19 @@ if st.session_state.start_chat:
 
     if prompt := st.chat_input("Escriu aquí la teva pregunta"):
         st.session_state.messages.append({"role": "user", "content": prompt})
-        with st.chat_message("user"):
+        with st.chat_message(nom):
             st.markdown(prompt)
 
         client.beta.threads.messages.create(
             thread_id=st.session_state.thread_id,
-            role="user",
+            role=nom,
             content=prompt
         )
 
         run = client.beta.threads.runs.create(
             thread_id=st.session_state.thread_id,
             assistant_id=assistant_id,
-            instructions="You are the best history researcher. You are only allowed to answer queries in arab and with information from your docs."
+            instructions="You are the best history researcher. You are only allowed to answer queries in catalan with information from your docs."
         )
 
         while run.status != 'completed':
