@@ -15,9 +15,17 @@ st.set_page_config(page_title="IE Rafael Alberti - Parlant amb la Júlia... un x
 
 openai.api_key = st.secrets["auto_pau"]
 
+# Disable the submit button after it is clicked
+def disable():
+    st.session_state.disabled = True
+
+# Initialize disabled for form_submit_button to False
+if "disabled" not in st.session_state:
+    st.session_state.disabled = False
+
 with st.sidebar.form("usuari_form"):
   nom = st.text_input("Escriu la teva identificacio ")
-  submit_button = st.form_submit_button(label="Iniciar Xat")
+  submit_button = st.form_submit_button(label="Iniciar Xat",on_click=disable, disabled=st.session_state.disabled)
 
   if submit_button and nom != '':
     st.sidebar.form("usuari_form").disabled = True
