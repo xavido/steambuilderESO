@@ -19,6 +19,10 @@ openai.api_key = st.secrets["auto_pau"]
 def disable():
     st.session_state.disabled = True
 
+def enable():
+    if "disabled" in st.session_state and st.session_state.disabled == True:
+        st.session_state.disabled = False
+
 # Initialize disabled for form_submit_button to False
 if "disabled" not in st.session_state:
     st.session_state.disabled = False
@@ -44,7 +48,7 @@ if st.sidebar.button("Sortir Xat"):
     st.session_state.messages = []  # Clear the chat history
     st.session_state.start_chat = False  # Reset the chat state
     st.session_state.thread_id = None
-    st.session_state.disabled = True
+    enable()
 
 if st.session_state.start_chat:
     if "openai_model" not in st.session_state:
