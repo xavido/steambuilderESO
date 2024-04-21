@@ -35,7 +35,7 @@ def enable():
 
 # Initialize disabled for form_submit_button to False
 if "disabled" not in st.session_state:
-    st.session_state.disabled = False
+    st.session_state.disabled = True
 
 with st.sidebar.form("usuari_form"):
   nom = st.text_input("Escriu la teva identificacio 👇",disabled=st.session_state.disabled, key=1)
@@ -63,7 +63,7 @@ if st.sidebar.button("Sortir Xat"):
     st.session_state.messages = []  # Clear the chat history
     st.session_state.start_chat = False  # Reset the chat state
     st.session_state.thread_id = None
-    st.session_state.disabled = False
+    st.session_state.disabled = True
 
 
 if st.session_state.start_chat:
