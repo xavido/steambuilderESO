@@ -50,10 +50,15 @@ with st.sidebar.form("usuari_form"):
   nom = st.text_input("Escriu la teva identificacio 👇",disabled=st.session_state.disabled, key=1)
   submit_button = st.form_submit_button(label="Iniciar Xat",disabled=st.session_state.disabled, on_click=disable)
 
-#if st.sidebar.button("Iniciar Xat"):
-#    st.session_state.start_chat = True
-#    thread = client.beta.threads.create()
-#    st.session_state.thread_id = thread.id
+  if st.sidebar.button("Iniciar Xat"):
+    if nom != '' and nom in l1:
+        st.session_state.start_chat = True
+        st.session_state.disabled = True
+        thread = client.beta.threads.create()
+        st.session_state.thread_id = thread.id
+    else:
+        if nom != '':
+            st.sidebar.write(":red[Aquest usuari no existeix]")
 
 st.title("Parlant amb...Júlia")
 st.write("Soc historiadora....em pots preguntar el que vulguis de la Història.")
