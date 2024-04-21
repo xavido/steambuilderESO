@@ -65,11 +65,11 @@ def disable():
         if nom != '':
             st.sidebar.write(":red[Aquest usuari no existeix]")
     if nom in l2:
-        especials = "Summarize the answer to 3 lines as if it were being read by an 8 year old child.Repeat the answer in spanish too.Answer just about history"
+        especials = "Summarize the answer to 3 lines as if it were being read by an 8 year old child.Repeat the answer in spanish too.Answer just about history.Add at the end of your answer that the information should be checked with the teacher."
     if nom in l3:
-        especials3 = "Repeat the same answer in arab too.Answer just about history"
+        especials3 = "Repeat the same answer in arab too.Answer just about history.Add at the end of your answer that the information should be checked with the teacher"
     if nom in l4:
-        especials4 = "Repeat the same answer in urdu too.Answer just about history"
+        especials4 = "Repeat the same answer in urdu too.Answer just about history.Add at the end of your answer that the information should be checked with the teacher"
 
 
 def enable():
