@@ -175,6 +175,7 @@ if st.session_state.start_chat:
         cur.close()
         conn.close()
 
+        response = message.content[0].text.value
         elaudio = st.empty()
         nomfitxer = "output_" + str(count) + "_" + "_" + nom + "_.mp3"
         count += 1
