@@ -31,7 +31,7 @@ if "disabled" not in st.session_state:
 
 with st.sidebar.form("usuari_form"):
   nom = st.text_input("Escriu la teva identificacio 👇",disabled=st.session_state.disabled)
-  submit_button = st.form_submit_button(label="Iniciar Xat")
+  submit_button = st.form_submit_button(label="Iniciar Xat",disabled=st.session_state.disabled)
 
 
   if submit_button and nom != '' and nom in l1:
@@ -55,6 +55,7 @@ if st.sidebar.button("Sortir Xat"):
     st.session_state.messages = []  # Clear the chat history
     st.session_state.start_chat = False  # Reset the chat state
     st.session_state.thread_id = None
+    st.session_state.disabled = True
 
 
 if st.session_state.start_chat:
