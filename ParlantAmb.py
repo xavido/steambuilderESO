@@ -32,6 +32,10 @@ def disable():
 def enable():
     if "disabled" in st.session_state and st.session_state.disabled == True:
         st.session_state.disabled = False
+        st.session_state.messages = []  # Clear the chat history
+        st.session_state.start_chat = False  # Reset the chat state
+        st.session_state.thread_id = None
+
 
 # Initialize disabled for form_submit_button to False
 if "disabled" not in st.session_state:
@@ -49,12 +53,7 @@ with st.sidebar.form("usuari_form"):
 st.title("Parlant amb...Júlia")
 st.write("Soc historiadora....em pots preguntar el que vulguis de la Història.")
 
-if st.sidebar.button("Sortir Xat"):
-    st.session_state.messages = []  # Clear the chat history
-    st.session_state.start_chat = False  # Reset the chat state
-    st.session_state.thread_id = None
-    st.session_state.disabled = False
-
+st.sidebar.button("Sortir Xat",on_click=enable)
 
 if st.session_state.start_chat:
     if "openai_model" not in st.session_state:
