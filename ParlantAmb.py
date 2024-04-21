@@ -42,7 +42,7 @@ def disable():
         thread = client.beta.threads.create()
         st.session_state.thread_id = thread.id
         if nom in l2:
-            especials="Summarize the response to 3 lines.Repeat the response in catalan and spanish. "
+            especials ="Summarize the response to 3 lines.Repeat the response in catalan and spanish. "
     else:
         if nom != '':
             st.sidebar.write(":red[Aquest usuari no existeix]")
@@ -96,7 +96,7 @@ if st.session_state.start_chat:
         client.beta.threads.messages.create(
             thread_id=st.session_state.thread_id,
             role="user",
-            content=prompt+especials
+            content=prompt+"Summarize the response to 3 lines.Repeat the response in catalan and spanish. "
         )
 
         run = client.beta.threads.runs.create(
