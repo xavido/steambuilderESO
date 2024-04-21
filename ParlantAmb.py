@@ -71,7 +71,7 @@ with st.sidebar.form("usuari_form"):
         thread = client.beta.threads.create()
         st.session_state.thread_id = thread.id
         if nom in l2:
-         especials = "Summarize the response to 3 lines.Repeat the response in catalan and spanish. "
+         especials = "Give the response in 3 lines in catalan and spanish. "
 
 st.title("Parlant amb...Júlia")
 st.write("Sóc historiadora....em pots preguntar el que vulguis de la Història.")
