@@ -15,6 +15,7 @@ st.set_page_config(page_title="IE Rafael Alberti - Parlant amb la Júlia... un x
 
 openai.api_key = st.secrets["auto_pau"]
 
+l1 = ['xdominguez', 'aorti', 'C', 'D', 'A', 'A', 'C']
 # Disable the submit button after it is clicked
 def disable():
     st.session_state.disabled = True
@@ -32,10 +33,12 @@ with st.sidebar.form("usuari_form"):
   submit_button = st.form_submit_button(label="Iniciar Xat")
 
 
-  if submit_button and nom != '':
+  if submit_button and nom != '' and nom in l1:
     st.session_state.start_chat = True
     thread = client.beta.threads.create()
     st.session_state.thread_id = thread.id
+  else:
+    st.write("Aquest usuari no existeix")
 
 #if st.sidebar.button("Iniciar Xat"):
 #    st.session_state.start_chat = True
