@@ -164,7 +164,7 @@ if st.session_state.start_chat:
             #fig = px.bar(conteo, x='Usuario', y='Número de Preguntas', title='Número de preguntas por usuarix')
             #fig = px.pie(df, values='pregunta', names='idc')
             #st.write(fig)
-            fig2 = px.pie(conteo, values='Número de Preguntas', names='Usuario',title='Número de preguntes por usuarix')
+            fig2 = px.pie(conteo, values='Número de Preguntas', names='Usuario',title='Número de preguntes per usuarix')
             st.write(fig2)
 
         with fig_col2:
@@ -176,11 +176,11 @@ if st.session_state.start_chat:
 
             # Crea el gráfico de columnas
             fig = px.bar(conteo_preguntas, x='Data', y='Número de Preguntes',
-                         title='Número de Preguntes por Data')
+                         title='Número de Preguntes per Data')
 
             st.write(fig)
 
-        st.markdown("### Datos Generales")
+        st.markdown("### Dades Completes")
         st.dataframe(df,width=1800,column_order=("idc","pregunta","resposta"),column_config={"idc": "Usuari","pregunta":"Pregunta","resposta": "Resposta","id":None,"tema":None,"curso":None,})
         #for i in range(len(df['infografia'])):
         #    if df['infografia'][i]:
