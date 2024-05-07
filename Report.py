@@ -40,6 +40,13 @@ st.set_page_config(page_title="Informe sobre - Parlant amb...Júlia (Història)"
 openai.api_key = st.secrets["auto_pau"]
 
 l1 = ['xdominguez', 'aorti']
+lc = ['dajil','fali','wboutafah','acano','scolmenarez','ocontreras','efreitas','cdiaz','rdisla','rhaiek','aessalhi',
+'ifatima','nfernandez','jgaleano','ngonzalez','omartinez','mmuhammad','tmuhammad','lnaharro','npresciutti','hrabani','jroldan',
+'oruiz','asenon','gsingh','vtrinidad','svilla','jzalkaliani','azepeda','azeaaj','mabdul','sasghar','mabrioul','maslam','mcabanillas','wcardenas',
+'acerro','ecolmenarez','jcruz','adiaz','fduron','dfernandez','m_fernandez','ifigueroa','sghanem','maguisao','limran','clara','jmendoza',
+'hmir','hnoor','napresciutti','krani','kromero','hsingh','asoriano','bvalencia','kzaman']
+
+#list(set(listA) & set(listB))
 listcaptions =[]
 listimages = []
 # Disable the submit button after it is clicked
@@ -180,6 +187,9 @@ if st.session_state.start_chat:
 
             st.write(fig)
 
+        st.markdown ('### Llistat usuaris sense participar')
+        noparticipating = list(set(lc)&set(df['idc']))
+        st.markdwon (",".join(str(element) for element in noparticipating))
         st.markdown("### Dades Completes")
         st.dataframe(df,width=1800,column_order=("idc","pregunta","resposta"),column_config={"idc": "Usuari","pregunta":"Pregunta","resposta": "Resposta","id":None,"tema":None,"curso":None,})
         #for i in range(len(df['infografia'])):
