@@ -188,8 +188,9 @@ if st.session_state.start_chat:
             st.write(fig)
 
         st.markdown ('### Llistat usuaris sense participar')
-        noparticipating = list(set(lc)&set(df['idc']))
-        st.markdwon (",".join(str(element) for element in noparticipating))
+        noparticipating = list(set(lc) - set(df['idc']))
+        us_noparticipating = ",".join(str(element) for element in noparticipating)
+        st.markdwon (us_noparticipating)
         st.markdown("### Dades Completes")
         st.dataframe(df,width=1800,column_order=("idc","pregunta","resposta"),column_config={"idc": "Usuari","pregunta":"Pregunta","resposta": "Resposta","id":None,"tema":None,"curso":None,})
         #for i in range(len(df['infografia'])):
