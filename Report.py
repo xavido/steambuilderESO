@@ -206,7 +206,7 @@ if st.session_state.start_chat:
             model="gpt-4o",  # O el modelo que estés utilizando
             messages=[
                 {"role": "system", "content": "Eres un analista de datos y linguista catalan."},
-                {"role": "user", "content": "Puedes analizar esta información:"+df+". Devuelve un json con cada usuario idc y el número de faltas de ortografia."}
+                {"role": "user", "content": "Puedes analizar esta información:"+df[idc]+". Devuelve un string con cada usuario idc."}
             ]
         )
 
