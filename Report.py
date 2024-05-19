@@ -218,6 +218,6 @@ if st.session_state.start_chat:
 
         # Imprime la respuesta
         #st.markdown(completion.choices[0].message)
-        st.mardown(prompt)
+        st.markdown(prompt)
 else:
     st.write("Afegeix les teves dades i fes click a Veure Informe.")
