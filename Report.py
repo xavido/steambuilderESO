@@ -202,7 +202,7 @@ if st.session_state.start_chat:
 
         #st.image(listimages,caption=listcaptions,width=200,output_format="JPEG")
         # Realiza una petición a la API de OpenAI
-        response = openai.ChatCompletion.create(
+        completion = client.chat.completions.create(
             model="gpt-4o",  # O el modelo que estés utilizando
             messages=[
                 {"role": "system", "content": "Eres un analista de datos y linguista catalan."},
@@ -211,6 +211,6 @@ if st.session_state.start_chat:
         )
 
         # Imprime la respuesta
-        st.markdown(response.choices[0].message['content'])
+        st.markdown(completion.choices[0].message)
 else:
     st.write("Afegeix les teves dades i fes click a Veure Informe.")
