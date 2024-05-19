@@ -202,11 +202,26 @@ if st.session_state.start_chat:
 
         #st.image(listimages,caption=listcaptions,width=200,output_format="JPEG")
         # Realiza una petición a la API de OpenAI
+        def create_prompt(question, csv_data):
+            prompt = f"{question}\n\nAquí está la información del archivo CSV:\n"
+            for row in csv_data:
+                prompt += ", ".join(f"{key}: {value}" for key, value in row.items()) + "\n"
+            return prompt
+
+
+        # Define tu pregunta
+        question = "¿Cuántos usuarios hay en la columna 'idc'?"
+        headers = next(df)  # Lee la primera fila como encabezados
+
+        # Convierte el contenido del CSV a una lista de diccionarios
+        csv_data = [dict(zip(headers, row)) for row in df]
+        # Crea el prompt
+        prompt = create_prompt(question, csv_data)
         completion = client.chat.completions.create(
             model="gpt-4o",  # O el modelo que estés utilizando
             messages=[
                 {"role": "system", "content": "Eres un analista de datos y linguista catalan."},
-                {"role": "user", "content": "Puedes analizar esta información:"+str(df['idc'])+". Devuelve un string con cada usuario idc."}
+                {"role": "user", "content": prompt}
             ]
         )
 
