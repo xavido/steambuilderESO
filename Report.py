@@ -214,15 +214,10 @@ if st.session_state.start_chat:
         jsonInfo = df.to_json()
         # Crea el prompt
         prompt = create_prompt(question, jsonInfo)
-        completion = client.chat.completions.create(
-            model="gpt-4o",  # O el modelo que estés utilizando
-            messages=[
-                {"role": "system", "content": "Eres un analista de datos y linguista catalan."},
-                {"role": "user", "content": prompt}
-            ]
-        )
+
 
         # Imprime la respuesta
-        st.markdown(completion.choices[0].message)
+        #st.markdown(completion.choices[0].message)
+        st.mardown(prompt)
 else:
     st.write("Afegeix les teves dades i fes click a Veure Informe.")
