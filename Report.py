@@ -202,22 +202,9 @@ if st.session_state.start_chat:
 
         #st.image(listimages,caption=listcaptions,width=200,output_format="JPEG")
         # Realiza una petición a la API de OpenAI
-        def create_prompt(question, jsonInfo):
-            prompt = f"{question}\n\nAquí está la información del archivo json:\n"
-            prompt +=jsonInfo
-            return prompt
-
-
-        # Define tu pregunta
-        question = "¿Cuántos usuarios hay en el campo 'idc'?Dime únicamente el número."
-        # Convert dataframe into json object
-        jsonInfo = df.to_json()
-        # Crea el prompt
-        prompt = create_prompt(question, jsonInfo)
-
-
+        
         # Imprime la respuesta
         #st.markdown(completion.choices[0].message)
-        st.markdown(prompt)
+        #st.markdown(prompt)
 else:
     st.write("Afegeix les teves dades i fes click a Veure Informe.")
