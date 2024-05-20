@@ -204,10 +204,13 @@ if st.session_state.start_chat:
         # Estudi per usuari
         myUsers = list(dict.fromkeys(df['idc']))
         selectUsers = st.selectbox(myUsers)
-        st.write("Selecciona un usuari:",selectUsers)
-        
-        # Imprime la respuesta
-        #st.markdown(completion.choices[0].message)
-        #st.markdown(prompt)
+        option = st.selectbox(
+            "How would you like to be contacted?",
+            ("Email", "Home phone", "Mobile phone"),
+            index=None,
+            placeholder="Select contact method...",
+        )
+
+        st.write("You selected:", option)
 else:
     st.write("Afegeix les teves dades i fes click a Veure Informe.")
