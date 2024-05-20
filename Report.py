@@ -203,8 +203,7 @@ if st.session_state.start_chat:
         #st.image(listimages,caption=listcaptions,width=200,output_format="JPEG")
         # Estudi per usuari
         for i in range(len(df['idc'])):
-            if df['idc'][i]:
-                st.write(df['pregunta'][i])
+            st.write(df['idc'][i])
 
         
         # Imprime la respuesta
