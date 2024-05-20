@@ -203,10 +203,8 @@ if st.session_state.start_chat:
         #st.image(listimages,caption=listcaptions,width=200,output_format="JPEG")
         # Estudi per usuari
         myUsers = list(dict.fromkeys(df['idc']))
-
-        for i in range(len(myUsers)):
-            st.write(myUsers[i])
-
+        selectUsers = st.selectbox(myUsers)
+        st.write("Selecciona un usuari:",selectUsers)
         
         # Imprime la respuesta
         #st.markdown(completion.choices[0].message)
