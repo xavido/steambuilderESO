@@ -203,8 +203,8 @@ if st.session_state.start_chat:
         #st.image(listimages,caption=listcaptions,width=200,output_format="JPEG")
         # Estudi per usuari
         myUsers = list(dict.fromkeys(df['idc']))
-        myUsers = filter(lambda x: x != '', myUsers)
-        selectUsers = st.selectbox("Selecciona un usuari:",options=myUsers)
+        cleaned_list = [x for x in myUsers if x != 'nan']
+        selectUsers = st.selectbox("Selecciona un usuari:",options=cleaned_list)
         #st.write("Selecciona un usuari:",options=selectUsers)
 
         # Imprime la respuesta
