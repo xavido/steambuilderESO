@@ -201,7 +201,11 @@ if st.session_state.start_chat:
         #        listcaptions.append(df['pregunta'][i])
 
         #st.image(listimages,caption=listcaptions,width=200,output_format="JPEG")
-        # Realiza una petición a la API de OpenAI
+        # Estudi per usuari
+        for i in range(len(df['idc'])):
+            if df['idc'][i]:
+                st.write(df['pregunta'][i])
+
         
         # Imprime la respuesta
         #st.markdown(completion.choices[0].message)
