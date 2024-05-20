@@ -84,6 +84,9 @@ def enable():
         st.session_state.thread_id = None
 
 
+def analitzaUser():
+    st.write('Aquí la info')
+    
 # Initialize disabled for form_submit_button to False
 if "disabled" not in st.session_state:
     st.session_state.disabled = False
@@ -203,8 +206,8 @@ if st.session_state.start_chat:
         #st.image(listimages,caption=listcaptions,width=200,output_format="JPEG")
         # Estudi per usuari
         myUsers = list(dict.fromkeys(df['idc']))
-        cleaned_list = [x for x in myUsers if x != '']
-        selectUsers = st.selectbox("Selecciona un usuari:",options=cleaned_list)
+
+        selectUsers = st.selectbox("Selecciona un usuari:",options=myUsers,on_change=analitzaUser)
         #st.write("Selecciona un usuari:",options=selectUsers)
 
         # Imprime la respuesta
