@@ -207,8 +207,8 @@ if st.session_state.start_chat:
         # Estudi per usuari
         myUsers = list(dict.fromkeys(df['idc']))
 
-        selectUsers = st.selectbox("Selecciona un usuari:",options=myUsers)
-        analitzaUser(selectUsers)
+        #selectUsers = st.selectbox("Selecciona un usuari:",options=myUsers)
+        
         #st.write("Selecciona un usuari:",options=selectUsers)
 
         # Imprime la respuesta
