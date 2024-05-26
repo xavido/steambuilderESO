@@ -180,6 +180,10 @@ if st.session_state.start_chat:
             st.markdown("##### # de consultes NO vàlides (<2 paraules incloent salutacions):**"+str(num_preguntas_cortas)+"**"+"-"+str(round((num_preguntas_cortas/len(df.index))*100,1))+"%")
             st.markdown("##### # de consultes repetides:" + str(num_preguntas_repetidas))
 
+        with fig_colB:
+            st.markdown('### Interessos Principals')
+            st.markdown('##### Paraules més utilitzades a les preguntes:guerra, franquista, dictadura, Hitler, mundial, holocaust, revolució')
+            
         fig_col1, fig_col2 = st.columns(2)
 
         with fig_col1:
