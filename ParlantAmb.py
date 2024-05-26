@@ -119,7 +119,7 @@ st.sidebar.button("Sortir Xat",on_click=enable)
 
 if st.session_state.start_chat:
     if "openai_model" not in st.session_state:
-        st.session_state.openai_model = "gpt-4-1106-preview"
+        st.session_state.openai_model = "gpt-4o"
     if "messages" not in st.session_state:
         st.session_state.messages = []
 
@@ -164,7 +164,7 @@ if st.session_state.start_chat:
             st.session_state.messages.append({"role": "assistant", "content": message.content[0].text.value})
             with st.chat_message("assistant"):
                 st.markdown(message.content[0].text.value)
-                
+
 
 # Crea una conexión con la base de datos
         conn = mysql.connector.connect(host=db_host, port=db_port, database=db_name, user=db_user,
