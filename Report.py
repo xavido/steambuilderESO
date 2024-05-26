@@ -168,7 +168,7 @@ if st.session_state.start_chat:
         #user_filter = st.selectbox("Escull un usuari", pd.unique(df["idc"]))
         # create two columns for charts
         num_preguntas_cortas = sum(1 for pregunta in df["pregunta"] if len(pregunta.split()) <= 2)
-        preguntas = df['pregunta'].tolist()
+        
 
         fig_colA, fig_colB = st.columns(2)
         with fig_colA:
