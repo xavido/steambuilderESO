@@ -177,15 +177,9 @@ if st.session_state.start_chat:
         with fig_colA:
             st.markdown('### Anàlisis General')
             st.markdown("##### # de consultes:**"+str(len(df.index))+"**")
-            st.markdown("##### # de consultes NO vàlides (<2 paraules incloent salutacions):**"+str(num_preguntas_cortas)+"**")
-            st.markdown("##### # de consultes repetides:" + str(num_preguntas_repetidas))
-            fig4 = px.pie(pd.DataFrame([len(df.index),num_preguntas_repetidas]), values='Número de Preguntas', names='Usuario',
-                          title='Anàlisis de preguntes')
-            st.write(fig4)
+            st.markdown("##### # de consultes NO vàlides (<2 paraules incloent salutacions):**"+str(num_preguntas_cortas)+"**"+"-"+str((num_preguntas_cortas/len(df.index))*100)+"%")
+            st.markdown("##### # de consultes repetides:" + str(num_preguntas_repetidas)+"-"+str((num_preguntas_repetidas/len(df.index))*100)+"%")
             
-        with fig_colB:
-            st.markdown("##### # de consultes repetides:"+str(num_preguntas_repetidas))
-
         fig_col1, fig_col2 = st.columns(2)
 
         with fig_col1:
