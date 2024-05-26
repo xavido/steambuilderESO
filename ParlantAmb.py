@@ -3,6 +3,7 @@ import streamlit as st
 import time
 import mysql.connector
 import base64
+import language_tool_python
 
 assistant_id = st.secrets["OPENAI_ASSISTANT"]
 db_host = st.secrets["DB_HOST"]
@@ -37,6 +38,15 @@ l2 = ['efreitas','aessalhi','ifatima','hrabani','vtrinidad','azeaaj','sasghar','
 l3 = ['dajil','aessalhi','sghanem']
 l4 = ['fali','ifatima','mmuhammad','hrabani','sasghar','maslam','hmir','hnoor','krani']
 l5 = ['efreitas','aessalhi','ifatima','hrabani','vtrinidad','azeaaj','sasghar','maslam','sghanem','hmir']
+
+tool = language_tool_python.LanguageToolPublicAPI('ca-ES')
+
+def tiene_falta_ortografia(pregunta):
+    matches = tool.check(pregunta)
+    if len(matches) >= 1:
+        return True
+
+    return False
 
 # Disable the submit button after it is clicked
 
