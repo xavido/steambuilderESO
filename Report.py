@@ -178,9 +178,9 @@ if st.session_state.start_chat:
         num_preguntas_cortas = sum(1 for pregunta in df["pregunta"] if len(pregunta.split()) <= 2)
         # Contar el número de preguntas con al menos una falta de ortografía
         preguntas = df["pregunta"].tolist()
-        if tiene_falta_ortografia(df["pregunta"][10]):
+        if tiene_falta_ortografia(df["pregunta"][2]):
             num_preguntas_con_faltas = 1
-
+        tool.close()
         fig_colA, fig_colB = st.columns(2)
         with fig_colA:
             st.markdown('### Anàlisis General')
