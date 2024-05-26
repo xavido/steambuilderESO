@@ -164,6 +164,10 @@ if st.session_state.start_chat:
         # top-level filters
         #user_filter = st.selectbox("Escull un usuari", pd.unique(df["idc"]))
         # create two columns for charts
+        fig_colA, fig_colB = st.columns(2)
+        with fig_col1:
+            st.markdown("### Número total de consultes:"+str(len(df.index)))
+
         fig_col1, fig_col2 = st.columns(2)
 
         with fig_col1:
