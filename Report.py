@@ -51,6 +51,19 @@ lc = ['dajil','fali','wboutafah','acano','scolmenarez','ocontreras','efreitas','
 listcaptions =[]
 listimages = []
 # Disable the submit button after it is clicked
+# Inicializar el corrector ortográfico para el idioma catalán
+
+spell = SpellChecker(language='ca')
+
+# Función para verificar la ortografía de una pregunta
+def tiene_falta_ortografia(pregunta, spell_checker):
+    # Separar las palabras de la pregunta
+    palabras = pregunta.split()
+    # Verificar cada palabra si es incorrecta
+    for palabra in palabras:
+        if spell_checker.correction(palabra.lower()) != palabra.lower():
+            return True
+    return False
 
 def autoplay_audio(file_path: str):
     with open(file_path, "rb") as f:
@@ -166,12 +179,15 @@ if st.session_state.start_chat:
         #user_filter = st.selectbox("Escull un usuari", pd.unique(df["idc"]))
         # create two columns for charts
         num_preguntas_cortas = sum(1 for pregunta in df["pregunta"] if len(pregunta.split()) <= 2)
+        preguntas = df['pregunta'].tolist()
+        num_preguntas_con_faltas = sum(1 for pregunta in preguntas if tiene_falta_ortografia(pregunta, spell))
 
         fig_colA, fig_colB = st.columns(2)
         with fig_colA:
             st.markdown('### Anàlisis General')
             st.markdown("##### # de consultes:**"+str(len(df.index))+"**")
-            st.markdown("##### # de preguntas NO válidas (<2 paraules incloent salutacions):**"+str(num_preguntas_cortas)+"**")
+            st.markdown("##### # de consultes NO válidas (<2 paraules incloent salutacions):**"+str(num_preguntas_cortas)+"**")
+            st.markdown("##### # de consultes AMB faltes d'ortografia:"+str(num_preguntas_con_faltas))
         with fig_colB:
             st.markdown("### Número total de consultes:"+str(len(df.index)))
 
