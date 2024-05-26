@@ -178,7 +178,7 @@ if st.session_state.start_chat:
             st.markdown('### Anàlisis General')
             st.markdown("##### # de consultes:**"+str(len(df.index))+"**")
             st.markdown("##### # de consultes NO vàlides (<2 paraules incloent salutacions):**"+str(num_preguntas_cortas)+"**"+"-"+str(round((num_preguntas_cortas/len(df.index))*100,1))+"%")
-            st.markdown("##### # de consultes repetides:" + str(num_preguntas_repetidas)+"-"+str(round((num_preguntas_repetidas/len(df.index))*100),1)+"%")
+            st.markdown("##### # de consultes repetides:" + str(num_preguntas_repetidas))
 
         fig_col1, fig_col2 = st.columns(2)
 
