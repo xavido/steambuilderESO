@@ -177,7 +177,7 @@ if st.session_state.start_chat:
             st.markdown("##### # de consultes NO vàlides (<2 paraules incloent salutacions):**"+str(num_preguntas_cortas)+"**")
             
         with fig_colB:
-            st.markdown("##### # de consultes amb faltes ortografia"+str(num_preguntas_con_faltas))
+            st.markdown("##### # de consultes amb faltes ortografia")
 
         fig_col1, fig_col2 = st.columns(2)
 
