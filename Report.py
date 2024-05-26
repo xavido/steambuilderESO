@@ -181,6 +181,7 @@ if st.session_state.start_chat:
         preguntas = df["pregunta"].tolist()
         if tiene_falta_ortografia(df["pregunta"][3]):
             num_preguntas_con_faltas = 1
+
         tool.close()
         fig_colA, fig_colB = st.columns(2)
         with fig_colA:
