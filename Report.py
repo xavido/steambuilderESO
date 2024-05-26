@@ -12,7 +12,7 @@ import pandas as pd  # read csv, df manipulation
 import plotly.express as px  # interactive charts
 import streamlit as st  # 🎈 data web app development
 import os
-import hunspellcheck
+
 
 assistant_id = st.secrets["OPENAI_ASSISTANT"]
 db_host = st.secrets["DB_HOST"]
@@ -52,19 +52,6 @@ listcaptions =[]
 listimages = []
 # Disable the submit button after it is clicked
 # Inicializar el corrector ortográfico para el idioma catalán
-
-hobj = hunspell.HunSpell('ca.dic', 'ca.aff')
-
-
-# Función para verificar la ortografía de una pregunta
-def tiene_falta_ortografia(pregunta, hobj):
-    # Separar las palabras de la pregunta
-    palabras = pregunta.split()
-    # Verificar cada palabra si es incorrecta
-    for palabra in palabras:
-        if not hobj.spell(palabra):
-            return True
-    return False
 
 def autoplay_audio(file_path: str):
     with open(file_path, "rb") as f:
@@ -188,7 +175,7 @@ if st.session_state.start_chat:
             st.markdown('### Anàlisis General')
             st.markdown("##### # de consultes:**"+str(len(df.index))+"**")
             st.markdown("##### # de consultes NO válidas (<2 paraules incloent salutacions):**"+str(num_preguntas_cortas)+"**")
-            st.markdown("##### # de consultes AMB faltes d'ortografia:"+str(num_preguntas_con_faltas))
+            
         with fig_colB:
             st.markdown("### Número total de consultes:"+str(len(df.index)))
 
