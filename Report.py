@@ -54,6 +54,13 @@ listimages = []
 # Disable the submit button after it is clicked
 # Inicializar el corrector ortográfico para el idioma catalán
 tool = language_tool_python.LanguageToolPublicAPI('ca-ES')
+def tiene_falta_ortografia(pregunta):
+    matches = tool.check(pregunta)
+
+    if len(matches) >= 1:
+        return True
+
+    return False
 
 def autoplay_audio(file_path: str):
     with open(file_path, "rb") as f:
@@ -169,7 +176,9 @@ if st.session_state.start_chat:
         #user_filter = st.selectbox("Escull un usuari", pd.unique(df["idc"]))
         # create two columns for charts
         num_preguntas_cortas = sum(1 for pregunta in df["pregunta"] if len(pregunta.split()) <= 2)
-
+        # Contar el número de preguntas con al menos una falta de ortografía
+        preguntas = df["pregunta"].tolist()
+        num_preguntas_con_faltas = sum(1 for pregunta in preguntas if tiene_falta_ortografia(pregunta))
 
         fig_colA, fig_colB = st.columns(2)
         with fig_colA:
