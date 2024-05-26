@@ -58,7 +58,7 @@ def tiene_falta_ortografia(pregunta):
     matches = tool.check(pregunta)
 
     if len(matches) >= 1:
-        st.markdown(matches[1])
+        st.markdown(matches[0])
         return True
 
     return False
