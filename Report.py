@@ -169,8 +169,8 @@ if st.session_state.start_chat:
         fig_colA, fig_colB = st.columns(2)
         with fig_colA:
             st.markdown('### Anàlisis General')
-            st.markdown("#### # de consultes:"+str(len(df.index)))
-            st.markdown("##### # de preguntas NO válidas (<2 paraules incloent salutacions):"+str(num_preguntas_cortas))
+            st.markdown("##### # de consultes:**"+str(len(df.index))+"**")
+            st.markdown("##### # de preguntas NO válidas (<2 paraules incloent salutacions):**"+str(num_preguntas_cortas)+"**")
         with fig_colB:
             st.markdown("### Número total de consultes:"+str(len(df.index)))
 
