@@ -128,6 +128,7 @@ if st.session_state.start_chat:
             st.markdown(message["content"])
 
     if prompt := st.chat_input("Escriu aquí la teva pregunta"):
+
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):
             st.markdown(prompt)
@@ -163,6 +164,8 @@ if st.session_state.start_chat:
             st.session_state.messages.append({"role": "assistant", "content": message.content[0].text.value})
             with st.chat_message("assistant"):
                 st.markdown(message.content[0].text.value)
+                if tiene_falta_ortografia(prompt):
+                    st.markdown('Per cert... la teva consulta sembla que té alguna errada ortogràfica')
 
 # Crea una conexión con la base de datos
         conn = mysql.connector.connect(host=db_host, port=db_port, database=db_name, user=db_user,
