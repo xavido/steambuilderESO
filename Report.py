@@ -53,7 +53,7 @@ listimages = []
 # Disable the submit button after it is clicked
 # Inicializar el corrector ortográfico para el idioma catalán
 
-spell = SpellChecker(language='ca')
+spell = SpellChecker(language='es')
 
 # Función para verificar la ortografía de una pregunta
 def tiene_falta_ortografia(pregunta, spell_checker):
