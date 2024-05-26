@@ -53,6 +53,7 @@ listcaptions =[]
 listimages = []
 # Disable the submit button after it is clicked
 # Inicializar el corrector ortográfico para el idioma catalán
+tool = language_tool_python.LanguageToolPublicAPI('ca-ES')
 
 def autoplay_audio(file_path: str):
     with open(file_path, "rb") as f:
@@ -168,13 +169,13 @@ if st.session_state.start_chat:
         #user_filter = st.selectbox("Escull un usuari", pd.unique(df["idc"]))
         # create two columns for charts
         num_preguntas_cortas = sum(1 for pregunta in df["pregunta"] if len(pregunta.split()) <= 2)
-        
+
 
         fig_colA, fig_colB = st.columns(2)
         with fig_colA:
             st.markdown('### Anàlisis General')
             st.markdown("##### # de consultes:**"+str(len(df.index))+"**")
-            st.markdown("##### # de consultes NO válidas (<2 paraules incloent salutacions):**"+str(num_preguntas_cortas)+"**")
+            st.markdown("##### # de consultes NO vàlides (<2 paraules incloent salutacions):**"+str(num_preguntas_cortas)+"**")
             
         with fig_colB:
             st.markdown("### Número total de consultes:"+str(len(df.index)))
