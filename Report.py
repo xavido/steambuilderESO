@@ -182,8 +182,8 @@ if st.session_state.start_chat:
 
         with fig_colB:
             st.markdown('### Interessos Principals')
-            st.markdown('##### Paraules més utilitzades a les preguntes:guerra, franquista, dictadura, Hitler, mundial, holocaust, revolució')
-            
+            st.markdown('##### Paraules més utilitzades a les preguntes: guerra, franquista, dictadura, Hitler, mundial, holocaust, revolució')
+
         fig_col1, fig_col2 = st.columns(2)
 
         with fig_col1:
