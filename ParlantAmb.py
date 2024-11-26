@@ -65,7 +65,7 @@ def autoplay_audio(file_path: str):
         )
 
 def disable():
-    if nom != '' and nom in l1 or nom in l2 or nom in l3 or nom in l4 or nom in l5 or nom in l6 or nom in l7:
+    if nom != '' and ( nom in l1 or nom in l2 or nom in l3 or nom in l4 or nom in l5 or nom in l6 or nom in l7):
         st.session_state.disabled = True
         st.session_state.start_chat = True
         st.session_state.disabled = True
