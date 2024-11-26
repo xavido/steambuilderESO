@@ -20,6 +20,7 @@ especials4=""
 especials5=""
 especials6=""
 especials7=""
+especials8=""
 client = openai
 count = 0
 
@@ -32,13 +33,14 @@ st.set_page_config(page_title="IE Rafael Alberti - Parlant amb la Júlia... un x
 
 openai.api_key = st.secrets["auto_pau"]
 
-l1 = ['xdominguez','aorti', 'aabdelradi','hboutafah','mdabtyan']
-l2 = ['mahmed','laranibar','mcuadra','omghari','dghita','mlakhsayssi','wlaroussi','rmartinez','jmendoza','smoujar','jrivas','dsierra','jtinoco','xwang','wyemlahi']
-l3 = ['malarbi']
-l4 = ['zali','hmerroun']
-l5 = ['salves','souaouch','iraysouny','operez']
+l1 = ['xdominguez','aorti', 'aabdelradi','hboutafah','mdabtyan','nbarrak','mshah']
+l2 = ['lvinogradov','svivero','dvalle','arizqui','nrodriguez','rhaddad','aferrera','agomez','hjin','fncogo','dperalta','mbouziani','acano','acerro','jcruz','rdisla','nalava','mahmed','laranibar','mcuadra','omghari','dghita','mlakhsayssi','wlaroussi','rmartinez','jmendoza','smoujar','jrivas','dsierra','jtinoco','xwang','wyemlahi']
+l3 = ['ssaeed','malarbi']
+l4 = ['zali','hmerroun','sajmal','nbegum']
+l5 = ['salves','souaouch','iraysouny','operez','jsorla']
 l6 = ['maslam']
-l7 = ['gcruz','krani','avallecillo']
+l7 = ['avasquez','azepeda','gcruz','krani','avallecillo','fduron']
+l8 = ['iplotnikov']
 
 tool = language_tool_python.LanguageToolPublicAPI('ca-ES')
 
@@ -89,6 +91,8 @@ def disable():
         especials6 = "Check the text of the student. If the question is not related with your expertise, don't answer it and say the student you don't know nothing about it but a lot of History.Summarize the answer to 2 lines as if it were being read by a 5 years old kid.After the answer, ask a question related with the topic of the answer.Add at the end of your answer that the information should be checked with the teacher. Answer ALWAYS in catalan but also, just in that case, repeat the same answer in urdu language."
     if nom in l7:
         especials7 = "Check the text of the student. If the question is not related with your expertise, don't answer it and say the student you don't know nothing about it but a lot of History.Answer as if it were being read by a 5 years old kid.The answer should not exceed 2 lines.after the answer, ask a question related with the topic of the answer.Add at the end of your answer that the information should be checked with the teacher. Answer ALWAYS in catalan but also, just in that case, repeat the same answer in spanish language."
+    if nom in l8:
+        especials8 = "Check the text of the student. If the question is not related with your expertise, don't answer it and say the student you don't know nothing about it but a lot of History.Answer as if it were being read by a 5 years old kid.The answer should not exceed 2 lines.after the answer, ask a question related with the topic of the answer.Add at the end of your answer that the information should be checked with the teacher. Answer ALWAYS in catalan but also, just in that case, repeat the same answer in russian language."
 
 
 def enable():
@@ -120,6 +124,8 @@ with st.sidebar.form("usuari_form"):
       especials6 = "Check the text of the student. If the question is not related with your expertise, don't answer it and say the student you don't know nothing about it but a lot of History.Summarize the answer to 2 lines as if it were being read by a 5 years old kid.After the answer, ask a question related with the topic of the answer.Add at the end of your answer that the information should be checked with the teacher. Answer ALWAYS in catalan but also, just in that case, repeat the same answer in urdu language."
   if nom in l7:
       especials7 = "Check the text of the student. If the question is not related with your expertise, don't answer it and say the student you don't know nothing about it but a lot of History.Answer as if it were being read by a 5 years old kid.The answer should not exceed 2 lines.after the answer, ask a question related with the topic of the answer.Add at the end of your answer that the information should be checked with the teacher. Answer ALWAYS in catalan but also, just in that case, repeat the same answer in spanish language."
+  if nom in l8:
+      especials8 = "Check the text of the student. If the question is not related with your expertise, don't answer it and say the student you don't know nothing about it but a lot of History.Answer as if it were being read by a 5 years old kid.The answer should not exceed 2 lines.after the answer, ask a question related with the topic of the answer.Add at the end of your answer that the information should be checked with the teacher. Answer ALWAYS in catalan but also, just in that case, repeat the same answer in russian language."
 
   if submit_button and nom != '' and (nom in l1 or nom in l2 or nom in l3 or nom in l4 or nom in l5 or nom in l6 or nom in l7):
         st.session_state.disabled = True
@@ -204,7 +210,7 @@ if st.session_state.start_chat:
         cur.close()
         conn.close()
 
-        if nom in l5:
+        if nom in l5 or nom in l6 or nom in l7 or nom in l4:
             response = ''
             response = client.audio.speech.create(
                 model="tts-1",
