@@ -65,7 +65,7 @@ def autoplay_audio(file_path: str):
         )
 
 def disable():
-    if nom != '' and nom in l2:
+    if nom != '' and ( nom in l1 or nom in l2 or nom in l3 or nom in l4 or nom in l5 or nom in l6 or nom in l7):
         st.session_state.disabled = True
         st.session_state.start_chat = True
         st.session_state.disabled = True
@@ -99,6 +99,8 @@ if "disabled" not in st.session_state:
 with st.sidebar.form("usuari_form"):
   nom = st.text_input("Escriu la teva identificacio 👇",disabled=st.session_state.disabled, key=1)
   submit_button = st.form_submit_button(label="Iniciar Xat",disabled=st.session_state.disabled, on_click=disable)
+  if nom in l1:
+      especials = "Check the text of the student. If the question is not related with your expertise, don't answer it and say the student you don't know nothing about it but a lot of History.Summarize the answer to 5 lines as if it were being read by a teenager.After the answer, ask a question related with the topic of the answer.Add at the end of your answer that the information should be checked with the teacher. Answer ALWAYS in catalan."
   if nom in l2:
       especials = "Check the text of the student. If the question is not related with your expertise, don't answer it and say the student you don't know nothing about it but a lot of History.Summarize the answer to 3 lines as if it were being read by a teenager.After the answer, ask a question related with the topic of the answer.Add at the end of your answer that the information should be checked with the teacher. Answer ALWAYS in catalan."
   if nom in l3:
@@ -106,7 +108,7 @@ with st.sidebar.form("usuari_form"):
   if nom in l4:
       especials4 = "Repeat the same answer in urdu too.Answer just about history"
 
-  if submit_button and nom != '' and nom in l1:
+  if submit_button and nom != '' and (nom in l1 or nom in l2 or nom in l3 or nom in l4 or nom in l5 or nom in l6 or nom in l7):
         st.session_state.disabled = True
         st.session_state.start_chat = True
         st.session_state.disabled = True
