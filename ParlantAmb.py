@@ -16,6 +16,9 @@ lesinstruccions="You are just allowed to answer queries about history.Add at the
 especials=""
 especials3=""
 especials4=""
+especials5=""
+especials6=""
+especials7=""
 client = openai
 count = 0
 
@@ -74,9 +77,9 @@ def disable():
     if nom in l1:
         especials = "Check the text of the student. If the question is not related with your expertise, don't answer it and say the student you don't know nothing about it but a lot of History.Summarize the answer to 5 lines as if it were being read by a teenager.After the answer, ask a question related with the topic of the answer.Add at the end of your answer that the information should be checked with the teacher. Answer ALWAYS in catalan."
     if nom in l2:
-        especials = "Summarize the answer to 3 lines as if it were being read by an 8 year old child.Repeat the answer in spanish too.Answer just about history.Add at the end of your answer that the information should be checked with the teacher."
+        especials = "Check the text of the student. If the question is not related with your expertise, don't answer it and say the student you don't know nothing about it but a lot of History.Summarize the answer to 3 lines as if it were being read by a teenager.After the answer, ask a question related with the topic of the answer.Add at the end of your answer that the information should be checked with the teacher. Answer ALWAYS in catalan."
     if nom in l3:
-        especials3 = "Repeat the same answer in arab too.Answer just about history.Add at the end of your answer that the information should be checked with the teacher"
+        especials3 = "Check the text of the student. If the question is not related with your expertise, don't answer it and say the student you don't know nothing about it but a lot of History.Summarize the answer to 3 lines as if it were being read by a teenager.After the answer, ask a question related with the topic of the answer.Add at the end of your answer that the information should be checked with the teacher. Answer ALWAYS in catalan but also, just in that case, repeat the same answer in urdu language."
     if nom in l4:
         especials4 = "Repeat the same answer in urdu too.Answer just about history.Add at the end of your answer that the information should be checked with the teacher"
 
@@ -97,9 +100,9 @@ with st.sidebar.form("usuari_form"):
   nom = st.text_input("Escriu la teva identificacio 👇",disabled=st.session_state.disabled, key=1)
   submit_button = st.form_submit_button(label="Iniciar Xat",disabled=st.session_state.disabled, on_click=disable)
   if nom in l2:
-      especials = "Summarize the answer to 3 lines as if it were being read by an 5 year old child. Repeat the answer in spanish too."
+      especials = "Check the text of the student. If the question is not related with your expertise, don't answer it and say the student you don't know nothing about it but a lot of History.Summarize the answer to 3 lines as if it were being read by a teenager.After the answer, ask a question related with the topic of the answer.Add at the end of your answer that the information should be checked with the teacher. Answer ALWAYS in catalan."
   if nom in l3:
-      especials3 = "Repeat the same answer in arab too.Answer just about history"
+      especials3 = "Check the text of the student. If the question is not related with your expertise, don't answer it and say the student you don't know nothing about it but a lot of History.Summarize the answer to 3 lines as if it were being read by a teenager.After the answer, ask a question related with the topic of the answer.Add at the end of your answer that the information should be checked with the teacher. Answer ALWAYS in catalan but also, just in that case, repeat the same answer in urdu language."
   if nom in l4:
       especials4 = "Repeat the same answer in urdu too.Answer just about history"
 
