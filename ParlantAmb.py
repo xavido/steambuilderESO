@@ -88,7 +88,7 @@ def disable():
     if nom in l6:
         especials6 = "Check the text of the student. If the question is not related with your expertise, don't answer it and say the student you don't know nothing about it but a lot of History.Summarize the answer to 2 lines as if it were being read by a 5 years old kid.After the answer, ask a question related with the topic of the answer.Add at the end of your answer that the information should be checked with the teacher. Answer ALWAYS in catalan but also, just in that case, repeat the same answer in urdu language."
     if nom in l7:
-        especials7 = "Check the text of the student. If the question is not related with your expertise, don't answer it and say the student you don't know nothing about it but a lot of History.Summarize the answer to 2 lines as if it were being read by a 5 years old kid.After the answer, ask a question related with the topic of the answer.Add at the end of your answer that the information should be checked with the teacher. Answer ALWAYS in catalan but also, just in that case, repeat the same answer in spanish language."
+        especials7 = "Check the text of the student. If the question is not related with your expertise, don't answer it and say the student you don't know nothing about it but a lot of History.Answer as if it were being read by a 5 years old kid.The answer should not exceed 2 lines.after the answer, ask a question related with the topic of the answer.Add at the end of your answer that the information should be checked with the teacher. Answer ALWAYS in catalan but also, just in that case, repeat the same answer in spanish language."
 
 
 def enable():
@@ -119,7 +119,7 @@ with st.sidebar.form("usuari_form"):
   if nom in l6:
       especials6 = "Check the text of the student. If the question is not related with your expertise, don't answer it and say the student you don't know nothing about it but a lot of History.Summarize the answer to 2 lines as if it were being read by a 5 years old kid.After the answer, ask a question related with the topic of the answer.Add at the end of your answer that the information should be checked with the teacher. Answer ALWAYS in catalan but also, just in that case, repeat the same answer in urdu language."
   if nom in l7:
-      especials7 = "Check the text of the student. If the question is not related with your expertise, don't answer it and say the student you don't know nothing about it but a lot of History.Summarize the answer to 2 lines as if it were being read by a 5 years old kid.After the answer, ask a question related with the topic of the answer.Add at the end of your answer that the information should be checked with the teacher. Answer ALWAYS in catalan but also, just in that case, repeat the same answer in spanish language."
+      especials7 = "Check the text of the student. If the question is not related with your expertise, don't answer it and say the student you don't know nothing about it but a lot of History.Answer as if it were being read by a 5 years old kid.The answer should not exceed 2 lines.after the answer, ask a question related with the topic of the answer.Add at the end of your answer that the information should be checked with the teacher. Answer ALWAYS in catalan but also, just in that case, repeat the same answer in spanish language."
 
   if submit_button and nom != '' and (nom in l1 or nom in l2 or nom in l3 or nom in l4 or nom in l5 or nom in l6 or nom in l7):
         st.session_state.disabled = True
