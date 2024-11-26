@@ -210,7 +210,7 @@ if st.session_state.start_chat:
         cur.close()
         conn.close()
 
-        if nom in l5 or nom in l6 or nom in l7 or nom in l4:
+        if nom in l5 or nom in l6 or nom in l7 or nom in l4 or nom in l8:
             response = ''
             response = client.audio.speech.create(
                 model="tts-1",
