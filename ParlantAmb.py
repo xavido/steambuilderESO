@@ -35,7 +35,7 @@ st.set_page_config(page_title="IE Rafael Alberti - Parlant amb la Júlia... un x
 openai.api_key = st.secrets["auto_pau"]
 
 l1 = ['xdominguez','aorti', 'aabdelradi','hboutafah','mdabtyan','nbarrak','mshah']
-l2 = ['lvinogradov','svivero','dvalle','arizqui','nrodriguez','rhaddad','aferrera','agomez','hjin','fncogo','dperalta','mbouziani','acano','acerro','jcruz','rdisla','nalava','mahmed','laranibar','mcuadra','omghari','dghita','mlakhsayssi','wlaroussi','rmartinez','jmendoza','smoujar','jrivas','dsierra','jtinoco','xwang','wyemlahi']
+l2 = ['lvinogradov','svivero','dvalle','arizqui','nrodriguez','rhaddad','aferrera','agomez','hjin','fncogo','dperalta','mbouziani','acano','acerro','jcruz','rdisla','nalava','mahmed','laranibar','mcuadra','omghari','dghita','mlakhsayssi','wlaroussi','rmartinez','jmendoza','smoujar','jrivas','dsierra','jtinoco','xwang','wyemlahi','aasghar']
 l3 = ['ssaeed','malarbi']
 l4 = ['zali','hmerroun','sajmal','nbegum']
 l5 = ['salves','souaouch','iraysouny','operez','jsorla']
