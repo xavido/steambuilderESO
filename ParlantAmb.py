@@ -21,6 +21,7 @@ especials5=""
 especials6=""
 especials7=""
 especials8=""
+especials9=""
 client = openai
 count = 0
 
