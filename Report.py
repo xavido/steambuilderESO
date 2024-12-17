@@ -42,11 +42,7 @@ st.set_page_config(page_title="Informe sobre - Parlant amb...Júlia (Història)"
 openai.api_key = st.secrets["auto_pau"]
 
 l1 = ['xdominguez', 'aorti']
-lc = ['dajil','fali','wboutafah','acano','scolmenarez','ocontreras','efreitas','cdiaz','rdisla','rhaiek','aessalhi',
-'ifatima','nfernandez','jgaleano','ngonzalez','omartinez','mmuhammad','tmuhammad','lnaharro','npresciutti','hrabani','jroldan',
-'oruiz','asenon','gsingh','vtrinidad','svilla','jzalkaliani','azepeda','azeaaj','mabdul','sasghar','mabrioul','maslam','mcabanillas','wcardenas',
-'acerro','ecolmenarez','jcruz','adiaz','fduron','dfernandez','m_fernandez','ifigueroa','sghanem','maguisao','limran','clara','jmendoza',
-'hmir','hnoor','napresciutti','krani','kromero','hsingh','asoriano','bvalencia','kzaman']
+lc = ['aabdelradi','hboutafah','mdabtyan','nbarrak','mshah','lvinogradov','svivero','dvalle','arizqui','nrodriguez','rhaddad','aferrera','agomez','hjin','fncogo','dperalta','mbouziani','acano','acerro','jcruz','rdisla','nalava','mahmed','laranibar','mcuadra','omghari','dghita','mlakhsayssi','wlaroussi','rmartinez','jmendoza','smoujar','jrivas','dsierra','jtinoco','xwang','wyemlahi','aasghar','ssaeed','malarbi','zali','hmerroun','sajmal','nbegum','salves','souaouch','iraysouny','operez','jsorla','maslam','avasquez','azepeda','gcruz','krani','avallecillo','fduron','iplotnikov','nbegum']
 
 #list(set(listA) & set(listB))
 listcaptions =[]
