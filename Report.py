@@ -48,8 +48,6 @@ lc = ['aabdelradi','hboutafah','mdabtyan','nbarrak','mshah','lvinogradov','svive
 listcaptions =[]
 listimages = []
 # Disable the submit button after it is clicked
-
-
 def autoplay_audio(file_path: str):
     with open(file_path, "rb") as f:
         data = f.read()
